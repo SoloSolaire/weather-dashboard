@@ -20,9 +20,9 @@ searchButton.on('click', function() {
         var todayWind = document.querySelector("#wind-now");
         var todayHumid = document.querySelector("#humid-now");
 
-        currentCity.textContent = todayData.name;
+        currentCity.textContent = todayData.name + " (" + dayjs.unix(todayData.dt).format('M/D/YYYY') + ")";
         todayTemp.textContent = 'Temp: ' + todayData.main.temp.toFixed(2) + '°F';
-        todayWind.textContent = 'Wind: ' + todayData.wind.speed + 'MPH';
+        todayWind.textContent = 'Wind: ' + todayData.wind.speed + ' MPH';
         todayHumid.textContent = 'Humidity: ' + todayData.main.humidity + '%';
     })
 } )
