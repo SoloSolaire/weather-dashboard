@@ -10,19 +10,51 @@ searchButton.on('click', function() {
     console.log('today', requestToday);
     console.log('week', requestWeek);
 
+    //fetch api for current day
     fetch(requestToday)
     .then(function (response) {
         return response.json();
     })
+    //display weather data for current day
     .then(function (todayData) {
         var currentCity = document.querySelector('#city-name');
         var todayTemp = document.querySelector("#temp-now");
         var todayWind = document.querySelector("#wind-now");
         var todayHumid = document.querySelector("#humid-now");
+        var weatherIcon = todayData.weather[0].main;
 
-        currentCity.textContent = todayData.name + " (" + dayjs.unix(todayData.dt).format('M/D/YYYY') + ")";
+        currentCity.textContent = todayData.name + " (" + dayjs.unix(todayData.dt).format('M/D/YYYY') + ") " + weatherIcon;
         todayTemp.textContent = 'Temp: ' + todayData.main.temp.toFixed(2) + '°F';
         todayWind.textContent = 'Wind: ' + todayData.wind.speed + ' MPH';
         todayHumid.textContent = 'Humidity: ' + todayData.main.humidity + '%';
+    });
+
+    //fetch api for 5-day week
+    fetch(requestWeek)
+    .then(function (response) {
+        return response.json();
+    })
+    //display weather data for 5-day week
+    .then(function (weekData) {
+        for (i = 1; i < 6; i++){
+            var addDay = dayjs().add(i, 'day').format('M/D/YYYY');
+            var dayWeek = document.querySelector("#card-day-" + i);
+            var weekTemp = document.querySelector("#card-temp-" + i);
+            var weekWind = document.querySelector("#card-wind-" + i);
+            var weekHumid = document.querySelector("#card-humid-" + i);
+            var weekIcon = document.querySelector("#card-icon-" + i);
+
+            dayWeek.textContent = addDay;
+            weekTemp.textContent = 'Temp: ' + weekData.list[i].main.temp.toFixed(2) + '°F';
+            weekWind.textContent = 'Wind: ' + weekData.list[i].wind.speed + ' MPH';
+            weekHumid.textContent = 'Humidity: ' + weekData.list[i].main.humidity + '%';
+
+            if (weekData.list[i].weather[0].main === "Misty") {
+                weekIcon.textContent = "🌫️"
+            }
+            if (weekData.list[i].weather[0].main === "Rain") {
+                weekIcon.textContent = "🌧️"
+            }
+        }
     })
 } )

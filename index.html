@@ -10,6 +10,7 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
+    <!--User Input-->
     <div>
         <h2>Search for a City:</h2>
         <input type="text" id="search" placeholder="Enter City Here"/>
@@ -18,14 +19,51 @@
 
         </ul>
     </div>
+    <!--Current Day Weather-->
     <main>
         <h2 id="city-name"></h2>
         <p id="temp-now"></p>
         <p id="wind-now"></p>
         <p id="humid-now"></p>
     </main>
+    <!--Next 5-days forecast-->
     <section>
         <h2>5-Day Forecast:</h2>
+        <div class="card">
+            <h2 id="card-day-1"></h2>
+            <p id="card-icon-1"></p>
+            <p id="card-temp-1"></p>
+            <p id="card-wind-1"></p>
+            <p id="card-humid-1"></p>
+        </div>
+        <div class="card">
+            <h2 id="card-day-2"></h2>
+            <p id="card-icon-2"></p>
+            <p id="card-temp-2"></p>
+            <p id="card-wind-2"></p>
+            <p id="card-humid-2"></p>
+        </div>
+        <div class="card">
+            <h2 id="card-day-3"></h2>
+            <p id="card-icon-3"></p>
+            <p id="card-temp-3"></p>
+            <p id="card-wind-3"></p>
+            <p id="card-humid-3"></p>
+        </div>
+        <div class="card">
+            <h2 id="card-day-4"></h2>
+            <p id="card-icon-4"></p>
+            <p id="card-temp-4"></p>
+            <p id="card-wind-4"></p>
+            <p id="card-humid-4"></p>
+        </div>
+        <div class="card">
+            <h2 id="card-day-5"></h2>
+            <p id="card-icon-5"></p>
+            <p id="card-temp-5"></p>
+            <p id="card-wind-5"></p>
+            <p id="card-humid-5"></p>
+        </div>
     </section>
     <script
     src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
