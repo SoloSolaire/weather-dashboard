@@ -21,12 +21,40 @@ searchButton.on('click', function() {
         var todayTemp = document.querySelector("#temp-now");
         var todayWind = document.querySelector("#wind-now");
         var todayHumid = document.querySelector("#humid-now");
-        var weatherIcon = todayData.weather[0].main;
+        var weatherIcon = document.querySelector("#icon-now");
 
-        currentCity.textContent = todayData.name + " (" + dayjs.unix(todayData.dt).format('M/D/YYYY') + ") " + weatherIcon;
+        currentCity.textContent = todayData.name + " (" + dayjs.unix(todayData.dt).format('M/D/YYYY') + ") ";
         todayTemp.textContent = 'Temp: ' + todayData.main.temp.toFixed(2) + '°F';
         todayWind.textContent = 'Wind: ' + todayData.wind.speed + ' MPH';
         todayHumid.textContent = 'Humidity: ' + todayData.main.humidity + '%';
+
+        if (todayData.weather[0].main === "Thunderstorm") {
+            weatherIcon.textContent = "⚡"
+        }
+
+        if (todayData.weather[0].main === "Drizzle") {
+            weatherIcon.textContent = "🌦️"
+        }
+
+        if (todayData.weather[0].main === "Rain") {
+            weatherIcon.textContent = "🌧️"
+        }
+
+        if (todayData.weather[0].main === "Snow") {
+            weatherIcon.textContent = "☃️"
+        }
+
+        if (todayData.weather[0].main === "Mist") {
+            weatherIcon.textContent = "🌫️"
+        }
+
+        if (todayData.weather[0].main === "Clear") {
+            weatherIcon.textContent = "🌞"
+        }
+
+        if (todayData.weather[0].main === "Clouds") {
+            weatherIcon.textContent = "☁️"
+        }
     });
 
     //fetch api for 5-day week
@@ -49,11 +77,26 @@ searchButton.on('click', function() {
             weekWind.textContent = 'Wind: ' + weekData.list[i].wind.speed + ' MPH';
             weekHumid.textContent = 'Humidity: ' + weekData.list[i].main.humidity + '%';
 
-            if (weekData.list[i].weather[0].main === "Misty") {
-                weekIcon.textContent = "🌫️"
+            if (weekData.list[i].weather[0].main === "Thunderstorm") {
+                weekIcon.textContent = "⚡"
+            }
+            if (weekData.list[i].weather[0].main === "Drizzle") {
+                weekIcon.textContent = "🌦️"
             }
             if (weekData.list[i].weather[0].main === "Rain") {
                 weekIcon.textContent = "🌧️"
+            }
+            if (weekData.list[i].weather[0].main === "Snow") {
+                weekIcon.textContent = "☃️"
+            }
+            if (weekData.list[i].weather[0].main === "Mist") {
+                weekIcon.textContent = "🌫️"
+            }
+            if (weekData.list[i].weather[0].main === "Clear") {
+                weekIcon.textContent = "🌞"
+            }
+            if (weekData.list[i].weather[0].main === "Clouds") {
+                weekIcon.textContent = "☁️"
             }
         }
     })

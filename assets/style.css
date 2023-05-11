@@ -1,0 +1,26 @@
+header {
+    display: flex;
+    background-color: blue;
+    color: white;
+    justify-content: center;
+}
+
+.searchbox {
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display:flex;
+    background-color: rgb(7, 0, 66);
+    color: white;
+    margin: 10px;
+    flex-direction: column;
+    border-radius: 5px;
+}

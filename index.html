@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -13,21 +14,22 @@
     <!--User Input-->
     <div>
         <h2>Search for a City:</h2>
-        <input type="text" id="search" placeholder="Enter City Here"/>
-        <button id="searchBtn">Search</button>
+        <input type="text" id="search" placeholder="Enter City Here" class="searchbox"/>
+        <button id="searchBtn" class="searchButton">Search</button>
         <ul>
 
         </ul>
     </div>
     <!--Current Day Weather-->
-    <main>
+    <main class="main-container">
         <h2 id="city-name"></h2>
+        <p id="icon-now"></p>
         <p id="temp-now"></p>
         <p id="wind-now"></p>
         <p id="humid-now"></p>
     </main>
     <!--Next 5-days forecast-->
-    <section>
+    <section class="container">
         <h2>5-Day Forecast:</h2>
         <div class="card">
             <h2 id="card-day-1"></h2>
