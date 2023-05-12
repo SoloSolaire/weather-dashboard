@@ -24,3 +24,16 @@ header {
     flex-direction: column;
     border-radius: 5px;
 }
+
+.searchButton {
+    background-color: rgb(117, 117, 255);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.history-button {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}

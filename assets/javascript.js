@@ -113,6 +113,5 @@ searchButton.on('click', function() {
 var historyButton = $('#historyBtn');
 
 historyButton.on("click", function() {
-    JSON.parse(localStorage.getItem('weather today'))
-    
+    JSON.parse(localStorage.getItem('weather today'));   
 })
