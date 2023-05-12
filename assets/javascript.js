@@ -10,6 +10,8 @@ searchButton.on('click', function() {
     console.log('today', requestToday);
     console.log('week', requestWeek);
 
+        localStorage.setItem('city', city)
+
     //fetch api for current day
     fetch(requestToday)
     .then(function (response) {
@@ -55,6 +57,8 @@ searchButton.on('click', function() {
         if (todayData.weather[0].main === "Clouds") {
             weatherIcon.textContent = "☁️"
         }
+
+        localStorage.setItem('weather today', JSON.stringify(todayData));
     });
 
     //fetch api for 5-day week
@@ -63,7 +67,7 @@ searchButton.on('click', function() {
         return response.json();
     })
     //display weather data for 5-day week
-    .then(function (weekData) {
+    .then(function hello(weekData) {
         for (i = 1; i < 6; i++){
             var addDay = dayjs().add(i, 'day').format('M/D/YYYY');
             var dayWeek = document.querySelector("#card-day-" + i);
@@ -98,6 +102,17 @@ searchButton.on('click', function() {
             if (weekData.list[i].weather[0].main === "Clouds") {
                 weekIcon.textContent = "☁️"
             }
+            localStorage.setItem('weather 5-day', JSON.stringify(weekData));
+
         }
     })
+        var createBtn = $('#search-history').append("<button id='historyBtn' class='history-button'>" + city + "</button>");
+
 } )
+
+var historyButton = $('#historyBtn');
+
+historyButton.on("click", function() {
+    JSON.parse(localStorage.getItem('weather today'))
+    
+})
